@@ -1,1 +1,160 @@
-/* Add your CSS here */
+:root {
+  --intel-blue: #0068B5;
+  --intel-dark: #003b6f;
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+}
+
+/* ================= HERO ================= */
+header {
+  background: linear-gradient(135deg, var(--intel-blue), var(--intel-dark));
+  color: white;
+  text-align: center;
+  padding: 80px 20px 90px;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.logo {
+  height: 48px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: #00c7fd;
+  margin: 20px auto;
+}
+
+header p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.95;
+}
+
+/* ================= TIMELINE ================= */
+.timeline {
+  display: flex;
+  gap: 20px;
+  padding: 40px 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* ================= CARD ================= */
+.card {
+  flex: 0 0 300px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  scroll-snap-align: start;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+  color: var(--intel-blue);
+  margin: 0;
+}
+
+.card h3 {
+  margin: 6px 0 12px;
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Hover details */
+.details {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 104, 181, 0.95);
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  border-radius: 16px;
+}
+
+.card:hover .details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .card {
+    flex: 1;
+  }
+
+  .details {
+    position: static;
+    opacity: 1;
+    transform: none;
+    background: #eef3f8;
+    color: #333;
+    margin-top: 10px;
+  }
+}
