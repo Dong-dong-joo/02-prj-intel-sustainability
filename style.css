@@ -149,12 +149,20 @@ footer {
     flex: 1;
   }
 
+  /* 모바일에서는 hover가 없으니 details를 항상 보여주기 */
   .details {
     position: static;
     opacity: 1;
     transform: none;
+    pointer-events: auto;
     background: #eef3f8;
-    color: #333;
+    color: #222;
     margin-top: 10px;
+    border-radius: 12px;
+  }
+
+  /* 모바일에서 카드 hover 변형 제거 */
+  .card:hover {
+    transform: none;
   }
 }
